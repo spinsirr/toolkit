@@ -6,6 +6,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path[:0] = [str(ROOT / "plugin/hooks"), str(ROOT / "scripts")]
 
 from apply import BLOCK_MARK, for_tool, merge, set_toml_keys, with_block
+from decide import offers_next_step
 from guard import reason
 
 for bad in ["rm -rf /", "rm -rf ~", "rm -fr $HOME", "sudo rm -rf /*", "git push --force origin main", "git push -f origin master", "mkfs.ext4 /dev/sda1", "dd if=x of=/dev/disk2"]:
@@ -31,4 +32,8 @@ once = with_block("platform\n", "toolkit v1\n")
 assert once == f"platform\n\n{BLOCK_MARK}\ntoolkit v1\n", once
 assert with_block(once, "toolkit v2\n") == f"platform\n\n{BLOCK_MARK}\ntoolkit v2\n"
 assert with_block("", "t\n") == f"{BLOCK_MARK}\nt\n"
+for offer in ["四轮全部跑完。\n\n要我按上面这几点改 skill，再重跑 Sonnet 吗？", "Tests pass. Shall I push the branch?", "Done. Want me to open the PR?"]:
+    assert offers_next_step(offer), offer
+for done in ["四轮全部跑完。结论如下。", "Which of these two designs do you prefer?", "Shall I push? I did it already.\n\nThe PR is open."]:
+    assert not offers_next_step(done), done
 print("ok")
