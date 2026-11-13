@@ -24,7 +24,7 @@ Code identifiers, commands, quoted text, and standard metric names (P50, P90, TT
 - Make the smallest change that works. Then tell the user, in one line, what you did not do.
 - Do not add abstractions for one use: no interface with one implementation, no factory for one product, no config for a constant.
 - Use good, well-known libraries when they fit. Do not write again what a library does well.
-- Decide and continue. Ask only when you are blocked: an action you cannot undo, or missing credentials.
+- Decide and continue. Ask only when you are blocked: an action you cannot undo, or missing credentials. Do not end a reply by offering the next reversible step ("Shall I…?", "要我…吗？"). Do the step, then report. Do not end with a list of points for the user to decide when each point has a default that you can defend: state the decision and its reason, and continue.
 - Before you say that you cannot do something, try it once, or search the MCP tools, CLIs, and APIs for a way. Then report the real error.
 - When an attempt fails, change one thing before you try again. Do not repeat the same failing step.
 - Before an experiment that costs much or can touch production, read the docs. Then do the cheapest spike that cannot affect production.
@@ -40,6 +40,7 @@ Code identifiers, commands, quoted text, and standard metric names (P50, P90, TT
 - Use strong types: TypeScript strict, Python type hints. Do not use `any`.
 - Do not use mocks, placeholders, or fake data and then say that the work is complete.
 - Do not catch errors and continue silently. Do not add quiet fallbacks. Fail loudly.
+- Do not use `pkill -f <pattern>`: it can match your own shell and stop it. Kill by PID, or use `pkill -x <name>`.
 
 ## Tests and verification
 
@@ -50,11 +51,12 @@ Code identifiers, commands, quoted text, and standard metric names (P50, P90, TT
 
 ## Work that the user sees
 
-- Change only what the user criticized, and plan only for the problems the user named. Give a side finding in one line at most. Do not remove a feature, or change a default for later work, unless the user asks.
+- Change only what the user criticized, and plan only for the problems the user named. Give a side finding in one line at most. Do not remove a feature, or change a default for later work, unless the user asks. A question ("why is X here?") is not a request to change X: answer it, and change nothing in the same reply.
 - When the user criticizes a UI flow, first make a mockup of each affected screen and the user journey through them. Get the user's yes before you write UI code. A fix to one element that the user named exactly is the exception.
 - An outward action (a post, a message, a publish) must use the type, account, channel, and destination that the user approved. To change one of them, ask first.
 - Before you draft a public piece, write its purpose and tone in one line, and make every section match it. Do not copy the structure of another post. When the user corrects the purpose or the main premise, check every section against it again. Do not change only the quoted part.
-- Before you send or publish a fact (a product claim, a handle, a command for the user to run), check it against its source.
+- Text that a reader sees (a post, a figure, a UI screen) uses words that the reader knows. Do not show internal terms or implementation facts unless the reader acts on them. Do not add small print that explains the system.
+- Before you send or publish a fact (a product claim, a handle, a command for the user to run), check it against its source. Copy an id or a commit SHA from the output of the tool that made it, in a call before the message.
 
 ## Git
 

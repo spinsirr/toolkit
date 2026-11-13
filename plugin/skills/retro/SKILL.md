@@ -86,7 +86,6 @@ All fixes go on one branch, `retro/next`, on the fork `corespeed-io/toolkit`. Fo
 
 - If `retro/next` has an open PR, rebase it on `spinsirr/toolkit` main and add commits to it.
 - Otherwise (no branch, or its PR is merged or closed), reset `retro/next` to `spinsirr/toolkit` main.
-- Raise the plugin version once on the branch: one patch level above main. After a rebase, check it again.
 - Push with `--force-with-lease`. The Fork PRs workflow in `spinsirr/toolkit` opens the PR within about 15 minutes. Do not wait for it: give the PR link if it exists, or the compare link `https://github.com/spinsirr/toolkit/compare/main...corespeed-io:toolkit:retro/next?expand=1`.
 
 ## 6. Report
