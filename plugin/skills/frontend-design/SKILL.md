@@ -54,6 +54,8 @@ Then review that plan against the brief before building: if any part of it reads
 
 When writing the code, be careful of structuring your CSS selector specificities. It's easy to generate CSS classes that cancel each other out (especially with a type-based selector like .section and an element-based selector like .cta). This can happen often with padding/margin between sections.
 
+Before you show a mockup or a preview, make a choice list. Write each control, option and label that a person sees, and next to it, what the person gets or does differently with it. Remove or merge each item whose only difference is how the system works (a stream copy, a slot, a transport, an engine): the page chooses that, not the person. Show the list with the mockup, so that the user approves the choices, not only the picture.
+
 When the first screen works, send the user a preview link. Wait for their feedback before you build further, say that the work is ready, or start a code review. Before you send the link, check that the preview shows the latest commit.
 
 ## Restraint and self-critique
