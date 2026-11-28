@@ -17,6 +17,6 @@
   "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true,
   "env": {
-    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "60"
+    "CLAUDE_CODE_AUTO_COMPACT_WINDOW": "400000"
   }
 }
